@@ -9,6 +9,10 @@ body {
   font-family: "inter", sans-serif;
 }
 
+.container {
+  position: relative;
+}
+
 :root {
   --grey50: #656266;
   --grey100: #616161;
@@ -167,6 +171,8 @@ nav {
   padding: 8px;
   border-radius: 8px;
   margin-bottom: 8px;
+  /* cursor: pointer; */
+  display: none;
 }
 
 .options-head {
@@ -177,6 +183,7 @@ nav {
 
 .des {
   margin: 0px 0px 16px 40px;
+  display: none;
 }
 
 .des > p {
@@ -201,6 +208,118 @@ nav {
   color: var(--light);
 }
 
+#product {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--grey300);
+  margin-left: 16px;
+}
+
 .options > img {
   display: none;
+}
+
+.options.show-options {
+  display: block;
+}
+
+.des.show-description {
+  display: block;
+}
+
+.menu {
+  background-color: var(--white);
+  width: 80%;
+  border-radius: 14px;
+  border: 1px solid var(--light);
+  position: absolute;
+  top: 23%;
+  right: 2%;
+  font-size: 13px;
+  /* display: none; */
+}
+
+.menu > a {
+  text-decoration: none;
+}
+
+.menu > a > p {
+  color: var(--grey300);
+  padding: 6px 12px;
+}
+
+.store > a {
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--background);
+  align-items: center;
+  border-radius: 8px;
+  padding: 4px 12px 4px 8px;
+  margin: 6px;
+  text-decoration: none;
+  color: var(--grey300);
+}
+
+.dc-2 {
+  padding: 5px 5px;
+  background-color: #36fba1;
+  border-radius: 6px;
+  color: var(--grey50);
+}
+
+.name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.name > p:nth-child(2) {
+  font-weight: 600;
+}
+
+.stores > a {
+  text-decoration: none;
+  color: var(--grey300);
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 6px;
+}
+
+.menu-items {
+  padding: 0px 6px;
+  border-style: solid none;
+  border-color: var(--light);
+}
+
+.menu-items > a {
+  text-decoration: none;
+  color: var(--grey300);
+}
+
+.menu-items > a > p {
+  margin: 4px 0px;
+  padding: 4px 6px;
+}
+.menu-items > a > p:hover {
+  background-color: var(--background);
+  border-radius: 6px;
+}
+
+.store-contact {
+  padding: 6px;
+  line-height: 0.3rem;
+}
+
+.store-contact > a {
+  text-decoration: none;
+  color: var(--grey300);
+}
+
+.store-contact > a > p {
+  padding: 6px;
+}
+
+.store-contact > a > p:nth-child(1) {
+  font-weight: 600;
 }
