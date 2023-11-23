@@ -11,6 +11,7 @@ body {
 
 .container {
   position: relative;
+  overflow: hidden;
 }
 
 :root {
@@ -36,7 +37,7 @@ nav {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 23px;
-  padding: 15px 20px;
+  padding: 15px 8px;
   background-color: var(--grey300);
   color: var(--grey300);
 }
@@ -127,6 +128,10 @@ nav {
   text-decoration: none;
 }
 
+.remove-info {
+  cursor: pointer;
+}
+
 .accordion {
   padding: 10px;
   background-color: var(--white);
@@ -139,6 +144,17 @@ nav {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 5px;
+}
+
+#arrow-up,
+#arrow-down {
+  cursor: pointer;
+}
+
+#arrow-up,
+#arrow-down:hover {
+  background-color: var(--background);
+  border-radius: 5px;
 }
 
 #arrow-up {
@@ -393,7 +409,17 @@ nav {
   font-weight: 600;
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (max-width: 360px) {
+  #search {
+    padding: 8px 8px 8px 8px;
+  }
+
+  .search > svg {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
   nav {
     display: flex;
     justify-content: space-between;
@@ -448,25 +474,31 @@ nav {
 
   .info {
     margin: 0px auto 23px;
-    width: 55%;
+    width: 69%;
     border-radius: 8px;
     display: flex;
-    gap: 20px;
+    justify-content: center;
+    gap: 2px;
     align-items: center;
   }
 
   .p {
     display: flex;
-    gap: 250px;
+    justify-content: center;
+    gap: 377px;
     align-items: center;
   }
 
   .p > p {
     margin: 0;
+    font-size: 12px;
+  }
+  .p > a {
+    padding: 3px 9px;
   }
 
   .accordion {
-    width: 55%;
+    width: 69%;
     border: 1px solid var(--light);
     border-radius: 8px;
     margin: auto;
