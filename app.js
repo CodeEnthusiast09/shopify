@@ -66,76 +66,126 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // FOR ACCORDION MENU
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const arrowDownButton = document.getElementById("arrow-down");
-//   const arrowUpButton = document.getElementById("arrow-up");
-//   const optionsContainer = document.querySelector(".options");
-//   const firstOptionsDescription = document.querySelector(".options .des");
-//   // const otherOptionsHeader = document.querySelector(".options-head");
+document.addEventListener("DOMContentLoaded", function () {
+  const arrowDown = document.getElementById("arrow-down"); // Selects the 'arrow down' svg
 
-//   arrowDownButton.addEventListener("click", function () {
-//     optionsContainer.classList.toggle("show-options");
-//     firstOptionsDescription.classList.toggle("show-description");
-//     // otherOptionsHeader.classList.toggle("show-options-head");
-//     arrowDownButton.style.display = "none";
-//     arrowUpButton.style.display = "block";
-//   });
+  const arrowUp = document.getElementById("arrow-up"); // Selects the 'arrow up' svg
 
-//   arrowUpButton.addEventListener("click", function () {
-//     optionsContainer.classList.toggle("show-options");
-//     firstOptionsDescription.classList.toggle("show-description");
-//     // otherOptionsHeader.classList.toggle("show-options-head");
-//     arrowDownButton.style.display = "block";
-//     arrowUpButton.style.display = "none";
-//   });
-// });
+  const showOptionsOrNot = document.getElementsByClassName("options"); // Selects every div with class 'options'
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const arrowUp = document.getElementById("arrow-down");
-//   const options = document.querySelectorAll(".options");
+  if (arrowDown && arrowUp)
+    arrowDown.addEventListener("click", function () {
+      toggleOptionsDisplay(showOptionsOrNot, true);
+      arrowDown.style.display = "none";
+      arrowUp.style.display = "block";
+    });
 
-//   if (arrowUp) {
-//     arrowUp.addEventListener("click", function () {
-//       // Toggle visibility of the first .options element and its content
-//       const firstOptions = options[0];
-//       toggleVisibility(firstOptions);
+  arrowUp.addEventListener("click", function () {
+    toggleOptionsDisplay(showOptionsOrNot, false);
+    arrowUp.style.display = "none";
+    arrowDown.style.display = "block";
+  });
 
-//       // Toggle visibility of .options-head for the other 4 .options elements
-//       for (let i = 1; i < options.length; i++) {
-//         const otherOptionsHead = options[i].querySelector(".options-head");
-//         toggleVisibility(otherOptionsHead);
-//       }
-//     });
-//   }
+  function toggleOptionsDisplay(showOptionsOrNot, show) {
+    for (let i = 0; i < showOptionsOrNot.length; i++) {
+      showOptionsOrNot[i].style.display = show ? "block" : "none";
+    }
+  }
+});
 
-//   function toggleVisibility(element) {
-//     // Toggle the display property between 'block' and 'none'
-//     element.style.display = element.style.display === "none" ? "block" : "none";
-//   }
-// });
+// FOR THE OPTIONS
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const arrowUp = document.getElementById("arrow-down");
-//   const options = document.querySelectorAll(".options");
+document.addEventListener("DOMContentLoaded", function () {
+  const heads = document.getElementsByClassName("options"); // Selects every div with class 'options'
 
-//   if (arrowUp) {
-//     arrowUp.addEventListener("click", function () {
-//       // Toggle visibility of the first .options element and its content
-//       const firstOptions = options[0];
-//       toggleVisibility(firstOptions);
+  const descriptions = document.getElementsByClassName("des"); // Selects every div with class 'des'
 
-//       // Toggle visibility of .options-head for the other 4 .options elements
-//       for (let i = 1; i < options.length; i++) {
-//         const otherOptions = options[i];
-//         toggleVisibility(otherOptions);
-//         const otherOptionsHead = otherOptions.querySelector(".options-head");
-//         toggleVisibility(otherOptionsHead);
-//       }
-//     });
-//   }
+  const images = document.getElementsByClassName("img"); // Selects every image element with class 'img'
 
-//   function toggleVisibility(element) {
-//     // Toggle the display property between 'block' and 'none'
-//     element.style.display = element.style.display === "none" ? "block" : "none";
-//   }
-// });
+  if (
+    heads.length > 0 &&
+    descriptions.length > 0 &&
+    images.length > 0 &&
+    heads.length === descriptions.length &&
+    heads.length === images.length
+  ) {
+    // the loop below iterates over all elements with the class 'options'
+    for (let i = 0; i < heads.length; i++) {
+      heads[i].addEventListener("click", function () {
+        // This inner loop hides all des and img elements. This ensures that, before showing the relevant ones, we hide all others to reset the visibility.
+        for (let j = 0; j < descriptions.length; j++) {
+          descriptions[j].style.display = "none";
+          images[j].style.display = "none";
+        }
+
+        // Display the description and image associated with the clicked options-head
+        descriptions[i].style.display = "block";
+        images[i].style.display = "block";
+      });
+    }
+  }
+});
+
+//  FOR THE CUSTOM CHECKBOX, COUNTER AND PROGRESS BAR
+
+document.addEventListener("DOMContentLoaded", function () {
+  const checkBoxes = document.getElementsByClassName("checkbox");
+
+  const checkedIcons = document.getElementsByClassName("checked");
+
+  const count = document.getElementById("counter");
+
+  const progress = document.getElementById("bar");
+
+  let countChecked = 0;
+
+  // TO TOGGLE CHECKBOX
+
+  if (
+    checkBoxes.length > 0 &&
+    checkedIcons.length > 0 &&
+    checkBoxes.length === checkedIcons.length
+  ) {
+    for (let i = 0; i < checkBoxes.length; i++) {
+      checkBoxes[i].addEventListener("click", function () {
+        toggleCheckbox(i);
+        updateCheckedCount(i);
+        updateProgress();
+      });
+
+      checkedIcons[i].addEventListener("click", function () {
+        toggleCheckbox(i);
+        updateCheckedCount(i);
+        updateProgress();
+      });
+    }
+  }
+
+  function toggleCheckbox(index) {
+    checkBoxes[index].style.display =
+      checkBoxes[index].style.display === "none" ? "block" : "none";
+    checkedIcons[index].style.display =
+      checkedIcons[index].style.display === "block" ? "none" : "block";
+  }
+
+  // TO COUNT CHECKED ITEMS
+
+  function updateCheckedCount() {
+    countChecked = 0;
+    for (let i = 0; i < checkBoxes.length; i++) {
+      if (checkBoxes[i].style.display === "none") {
+        countChecked++;
+      }
+    }
+    count.textContent = countChecked;
+  }
+
+  // FOR THE PROGRESS BAR
+
+  // FOR THE PROGRESS BAR
+  function updateProgress() {
+    const totalCheckboxes = checkBoxes.length;
+    const completionPercentage = (countChecked / totalCheckboxes) * 100;
+    progress.style.width = `${completionPercentage}%`;
+  }
+});
