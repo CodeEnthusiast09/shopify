@@ -201,8 +201,7 @@ nav {
   padding: 8px;
   border-radius: 8px;
   margin-bottom: 8px;
-  /* cursor: pointer; */
-  display: none;
+  /* display: none; */
 }
 
 .sub {
@@ -215,7 +214,7 @@ nav {
   display: flex;
   align-items: center;
   gap: 8px;
-  display: none;
+  /* display: none; */
 }
 
 .sub-sub{

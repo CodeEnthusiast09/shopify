@@ -139,31 +139,3 @@ document.addEventListener("DOMContentLoaded", function () {
 //     element.style.display = element.style.display === "none" ? "block" : "none";
 //   }
 // });
-
-document.addEventListener("DOMContentLoaded", function () {
-  const arrowDown = document.getElementById("arrow-down");
-  const arrowUp = document.getElementById("arrow-up");
-
-  if (arrowDown && arrowUp) {
-    arrowDown.addEventListener("click", function () {
-      arrowDown.style.display = "none";
-      arrowUp.style.display = "block";
-      showOptions();
-      // Add your logic here for what should happen when arrow-down is clicked
-    });
-
-    arrowUp.addEventListener("click", function () {
-      arrowUp.style.display = "none";
-      arrowDown.style.display = "block";
-      showOptions();
-      // Add your logic here for what should happen when arrow-up is clicked
-    });
-  }
-});
-
-function showOptions() {
-  const options = document.querySelectorAll(".options-head");
-  options.forEach((option) => {
-    option.style.display = "block";
-  });
-}
