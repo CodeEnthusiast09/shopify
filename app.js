@@ -180,9 +180,7 @@ document.addEventListener("DOMContentLoaded", function () {
     count.textContent = countChecked;
   }
 
-  // FOR THE PROGRESS BAR
-
-  // FOR THE PROGRESS BAR
+  // FOR UPDATING THE PROGRESS BAR
   function updateProgress() {
     const totalCheckboxes = checkBoxes.length;
     const completionPercentage = (countChecked / totalCheckboxes) * 100;
