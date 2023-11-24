@@ -7,7 +7,6 @@
 body {
   background-color: var(--background);
   font-family: "inter", sans-serif;
-  /* overflow: hidden; */
 }
 
 .container {
@@ -23,8 +22,8 @@ body {
   --mid: #616161;
   --dark: #475467;
   --S50: #ebebeb;
-  --S100: #000000/7%;
-  --S200: #FFFFFF/20%;
+  --S100: #e1e1e1;
+  --S200: #616161;
   --hover: #f7f7f7;
   --pressed: #f0f0f0;
   --focused: #005bd3;
@@ -37,14 +36,10 @@ nav {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 23px;
-  padding: 15px 8px;
+  padding: 15px 15px;
   background-color: var(--grey300);
   color: var(--grey300);
 }
-
-/* nav > a {
-  margin-right: 10px;
-} */
 
 #mobile-icon {
   display: block;
@@ -158,6 +153,11 @@ nav {
   border-radius: 5px;
 }
 
+#arrow-up,
+#arrow-down:active {
+  border: 1px solid var(--focused);
+}
+
 #arrow-up {
   display: none;
 }
@@ -252,7 +252,7 @@ nav {
 .des > button {
   padding: 6px 12px;
   margin-right: 16px;
-  border: 1.5px solid var(--S200);
+  border: 2px solid var(--S200);
   border-radius: 6px;
   background-color: var(--grey200);
   color: var(--light);
@@ -270,6 +270,9 @@ nav {
   border-radius: 5px;
 }
 
+#product:active {
+  border: 1px solid var(--focused);
+}
 .img {
   display: none;
 }
@@ -475,17 +478,26 @@ nav {
   #dc {
     display: block;
     color: var(--white);
-    background-color: var(--mid);
+    background-color: #303030;
     display: flex;
     align-items: center;
     gap: 8px;
     border-radius: 8px;
-    padding: 5px 5px 5px 10px;
+    padding: 3px 3px 3px 8px;
     font-size: 13px;
   }
 
-  #bell {
+  #dc:hover,
+  #bell:hover {
     background-color: var(--mid);
+  }
+  #dc:active,
+  #bell:active {
+    border: 2px solid var(--focused);
+  }
+
+  #bell {
+    background-color: #303030;
     padding: 8px;
     border-radius: 8px;
     position: relative;
@@ -519,6 +531,7 @@ nav {
   .p > a {
     padding: 3px 9px;
     margin-left: 80px;
+    border: 1px solid var(--light);
   }
 
   .accordion {

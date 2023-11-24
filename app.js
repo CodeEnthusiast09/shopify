@@ -73,17 +73,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const showOptionsOrNot = document.getElementsByClassName("options"); // Selects every div with class 'options'
 
+  const firstImg = document.getElementById("first-img");
+
   if (arrowDown && arrowUp)
     arrowDown.addEventListener("click", function () {
       toggleOptionsDisplay(showOptionsOrNot, true);
       arrowDown.style.display = "none";
       arrowUp.style.display = "block";
+      firstImg.style.display = "block";
     });
 
   arrowUp.addEventListener("click", function () {
     toggleOptionsDisplay(showOptionsOrNot, false);
     arrowUp.style.display = "none";
     arrowDown.style.display = "block";
+    firstImg.style.display = "none";
   });
 
   function toggleOptionsDisplay(showOptionsOrNot, show) {
@@ -120,7 +124,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Display the description and image associated with the clicked options-head
         descriptions[i].style.display = "block";
-        images[i].style.display = "block";
+        if (window.innerWidth > 600) {
+          images[i].style.display = "block";
+        }
       });
     }
   }
