@@ -58,6 +58,8 @@
             viewBox="0 0 21 20"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            role="button"
+            tabindex="0"
           >
             <path
               fill-rule="evenodd"
@@ -66,435 +68,13 @@
               fill="#fff"
             />
           </svg>
-          <p id="dc">
+          <p id="dc" role="button" tabindex="0">
             Davii Collections
-            <span class="dc">DC</span>
+            <span class="dc" aria-hidden="true">DC</span>
           </p>
-          <p id="pi" class="dc">DC</p>
+          <p id="pi" class="dc" aria-hidden="true">DC</p>
         </div>
       </nav>
-      <div id="info">
-        <div class="p">
-          <p>Extend your trial for $1/month for 3 months on select plans.</p>
-          <a href="https://shopify.com/pricing">Select a plan</a>
-        </div>
-        <svg
-          onclick="removed()"
-          id="remove-info"
-          width="25"
-          height="25"
-          viewBox="0 0 21 20"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M14.4697 15.0303C14.7626 15.3232 15.2374 15.3232 15.5303 15.0303C15.8232 14.7374 15.8232 14.2626 15.5303 13.9697L11.5607 10L15.5303 6.03033C15.8232 5.73744 15.8232 5.26256 15.5303 4.96967C15.2374 4.67678 14.7626 4.67678 14.4697 4.96967L10.5 8.93934L6.53033 4.96967C6.23744 4.67678 5.76256 4.67678 5.46967 4.96967C5.17678 5.26256 5.17678 5.73744 5.46967 6.03033L9.43934 10L5.46967 13.9697C5.17678 14.2626 5.17678 14.7374 5.46967 15.0303C5.76256 15.3232 6.23744 15.3232 6.53033 15.0303L10.5 11.0607L14.4697 15.0303Z"
-            fill="#fff"
-          />
-        </svg>
-      </div>
-
-      <!-- ACCORDION MENU -->
-
-      <div class="accordion">
-        <div class="head">
-          <h4>Setup Guide</h4>
-          <svg
-            id="arrow-down"
-            width="25"
-            height="25"
-            viewBox="0 0 21 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M6.21967 8.46967C6.51256 8.17678 6.98744 8.17678 7.28033 8.46967L10.75 11.9393L14.2197 8.46967C14.5126 8.17678 14.9874 8.17678 15.2803 8.46967C15.5732 8.76256 15.5732 9.23744 15.2803 9.53033L11.2803 13.5303C10.9874 13.8232 10.5126 13.8232 10.2197 13.5303L6.21967 9.53033C5.92678 9.23744 5.92678 8.76256 6.21967 8.46967Z"
-              fill="#1c181d"
-            />
-          </svg>
-          <svg
-            id="arrow-up"
-            width="25"
-            height="25"
-            viewBox="0 0 21 20"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M15.0303 12.2803C14.7374 12.5732 14.2626 12.5732 13.9697 12.2803L10.5 8.81066L7.03033 12.2803C6.73744 12.5732 6.26256 12.5732 5.96967 12.2803C5.67678 11.9874 5.67678 11.5126 5.96967 11.2197L9.96967 7.21967C10.2626 6.92678 10.7374 6.92678 11.0303 7.21967L15.0303 11.2197C15.3232 11.5126 15.3232 11.9874 15.0303 12.2803Z"
-              fill="#1c181d"
-            />
-          </svg>
-        </div>
-        <p class="p-1">
-          Use this personalized guide to get your store up and running.
-        </p>
-        <div id="progress">
-          <p id="p-2"><span id="counter">0</span>/5 completed</p>
-          <div id="progress_bar">
-            <div id="bar"></div>
-          </div>
-        </div>
-
-        <!-- OPTIONS -->
-
-        <!-- 1 -->
-
-        <div class="options">
-          <div class="sub">
-            <div class="sub-sub">
-              <div class="options-head">
-                <svg
-                  class="checkbox"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                >
-                  <circle
-                    cx="16"
-                    cy="16"
-                    r="12"
-                    stroke="#8A8A8A"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-dasharray="4 6"
-                  />
-                </svg>
-                <svg
-                  id="hoverIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                >
-                  <circle
-                    cx="16"
-                    cy="16"
-                    r="12"
-                    stroke="#8A8A8A"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <svg
-                  id="checking"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                >
-                  <path
-                    d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
-                    stroke="#8A8A8A"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  />
-                </svg>
-                <svg
-                  class="checked"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
-                  <path
-                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
-                    fill="#fff"
-                  ></path>
-                </svg>
-                <p class="thick-head">Customize your online store</p>
-              </div>
-              <div class="des" style="display: block">
-                <p>
-                  Choose a theme and add your logo, colors, and images to
-                  reflect your brand.
-                  <a
-                    class="link"
-                    href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes"
-                  >
-                    Learn more
-                  </a>
-                </p>
-                <button>Customize theme</button>
-              </div>
-            </div>
-            <img
-              class="img"
-              id="first-img"
-              src="https://crushingit.tech/hackathon-assets/customise-store.png"
-              alt="customise-store"
-            />
-          </div>
-        </div>
-
-        <!-- 2 -->
-
-        <div class="options">
-          <div class="sub">
-            <div class="sub-sub">
-              <div class="options-head">
-                <svg
-                  onclick="check"
-                  class="checkbox"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                >
-                  <circle
-                    cx="16"
-                    cy="16"
-                    r="12"
-                    stroke="#8A8A8A"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-dasharray="4 6"
-                  />
-                </svg>
-                <svg
-                  class="checked"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
-                  <path
-                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
-                    fill="#fff"
-                  ></path>
-                </svg>
-                <p class="thick-head">Add your first product</p>
-              </div>
-              <div class="des">
-                <p>
-                  Write a description, add photos, and set pricing for the
-                  products you plan to sell.
-                  <a
-                    class="link"
-                    href="https://help.shopify.com/en/manual/products/add-update-products"
-                  >
-                    Learn more
-                  </a>
-                </p>
-                <button>Add product</button>
-                <a href="#" id="product">Import product</a>
-              </div>
-            </div>
-            <img
-              class="img"
-              src="https://crushingit.tech/hackathon-assets/product.png"
-              alt="product"
-            />
-          </div>
-        </div>
-
-        <!-- 3 -->
-
-        <div class="options">
-          <div class="sub">
-            <div class="sub-sub">
-              <div class="options-head">
-                <svg
-                  class="checkbox"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                >
-                  <circle
-                    cx="16"
-                    cy="16"
-                    r="12"
-                    stroke="#8A8A8A"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-dasharray="4 6"
-                  />
-                </svg>
-                <svg
-                  class="checked"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
-                  <path
-                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
-                    fill="#fff"
-                  ></path>
-                </svg>
-                <p class="thick-head">Add a custom domain</p>
-              </div>
-              <div class="des">
-                <p>
-                  Your current domain is 222219.myshopify.com but you can add a
-                  custom domain to help customers find your online store.
-                  <a
-                    class="link"
-                    href="https://help.shopify.com/en/manual/domains"
-                  >
-                    Learn more
-                  </a>
-                </p>
-                <button>Add domain</button>
-              </div>
-            </div>
-            <img
-              class="img"
-              src="https://crushingit.tech/hackathon-assets/website.png"
-              alt="website"
-            />
-          </div>
-        </div>
-
-        <!-- 4 -->
-
-        <div class="options">
-          <div class="sub">
-            <div class="sub-sub">
-              <div class="options-head">
-                <svg
-                  class="checkbox"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                >
-                  <circle
-                    cx="16"
-                    cy="16"
-                    r="12"
-                    stroke="#8A8A8A"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-dasharray="4 6"
-                  />
-                </svg>
-                <svg
-                  class="checked"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
-                  <path
-                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
-                    fill="#fff"
-                  ></path>
-                </svg>
-                <p class="thick-head">Name your store</p>
-              </div>
-              <div class="des">
-                <p>
-                  Your temporary store name is currently Davii collections. The
-                  store name appears in your admin and your online store.
-                  <a
-                    class="link"
-                    href="https://help.shopify.com/en/manual/intro-to-shopify/initial-setup/setup-business-settings#set-or-change-your-online-store-name-and-legal-business-name"
-                  >
-                    Learn more
-                  </a>
-                </p>
-                <button>Name store</button>
-              </div>
-            </div>
-            <img
-              class="img"
-              src="https://crushingit.tech/hackathon-assets/name-store.png"
-              alt="name-store"
-            />
-          </div>
-        </div>
-
-        <!-- 5 -->
-
-        <div class="options">
-          <div class="sub">
-            <div class="sub-sub">
-              <div class="options-head">
-                <svg
-                  class="checkbox"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 32 32"
-                  fill="none"
-                >
-                  <circle
-                    cx="16"
-                    cy="16"
-                    r="12"
-                    stroke="#8A8A8A"
-                    stroke-width="2.5"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-dasharray="4 6"
-                  />
-                </svg>
-                <svg
-                  class="checked"
-                  width="32"
-                  height="32"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
-                  <path
-                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
-                    fill="#fff"
-                  ></path>
-                </svg>
-                <p class="thick-head">Set up a payment provider</p>
-              </div>
-              <div class="des">
-                <p>
-                  Choose a payment provider to start accepting payments. You’ll
-                  need to create an account with the payment provider and set it
-                  up with your Shopify store.
-                  <a
-                    class="link"
-                    href="https://help.shopify.com/en/manual/payments"
-                  >
-                    Learn more
-                  </a>
-                </p>
-                <button>Setup payment</button>
-              </div>
-            </div>
-            <img
-              class="img"
-              src="https://crushingit.tech/hackathon-assets/payment.png"
-              alt="payment"
-            />
-          </div>
-        </div>
-      </div>
 
       <!-- MENU -->
 
@@ -537,30 +117,22 @@
                 fill="#1c181d"
               />
             </svg>
-            <p>All stores</p>
+            All stores
           </a>
         </div>
         <div class="menu-items">
-          <a href="https://admin.shopify.com">
-            <p>Help Center</p>
-            <p>Changelog</p>
-            <p>Community forums</p>
-            <p>Hire a Shopify Partner</p>
-            <p>Keyboard shortcuts</p>
-          </a>
+          <a href="https://admin.shopify.com"> Help Center </a>
+          <a href="https://admin.shopify.com"> Changelog </a>
+          <a href="https://admin.shopify.com"> Community forums </a>
+          <a href="https://admin.shopify.com"> Hire a Shopify Partner </a>
+          <a href="https://admin.shopify.com"> Keyboard shortcuts </a>
         </div>
         <div class="store-contact">
-          <a href="https://admin.shopify.com">
-            <p>David Micheal</p>
-            <p>daviicollections@gmail.com</p>
-          </a>
+          <p>David Micheal</p>
+          <p>daviicollections@gmail.com</p>
         </div>
-        <a href="https://admin.shopify.com">
-          <p>Manage account</p>
-        </a>
-        <a href="https://admin.shopify.com">
-          <p>Log out</p>
-        </a>
+        <a href="https://admin.shopify.com"> Manage account </a>
+        <a href="https://admin.shopify.com"> Log out </a>
       </div>
 
       <!-- NOTIFICATIONS -->
@@ -612,6 +184,534 @@
         </div>
         <div class="alerts">
           <p>Alerts about your store and account will show here</p>
+        </div>
+      </div>
+
+      <!-- INFO -->
+
+      <div id="info">
+        <div class="p">
+          <p>Extend your trial for $1/month for 3 months on select plans.</p>
+          <a href="https://shopify.com/pricing">Select a plan</a>
+        </div>
+        <svg
+          id="remove-info"
+          width="25"
+          height="25"
+          viewBox="0 0 21 20"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          role="button"
+          tabindex="0"
+          aria-label="Remove Information"
+          aria-haspopup="true"
+          aria-expanded="false"
+          title="Remove Information"
+        >
+          <path
+            d="M14.4697 15.0303C14.7626 15.3232 15.2374 15.3232 15.5303 15.0303C15.8232 14.7374 15.8232 14.2626 15.5303 13.9697L11.5607 10L15.5303 6.03033C15.8232 5.73744 15.8232 5.26256 15.5303 4.96967C15.2374 4.67678 14.7626 4.67678 14.4697 4.96967L10.5 8.93934L6.53033 4.96967C6.23744 4.67678 5.76256 4.67678 5.46967 4.96967C5.17678 5.26256 5.17678 5.73744 5.46967 6.03033L9.43934 10L5.46967 13.9697C5.17678 14.2626 5.17678 14.7374 5.46967 15.0303C5.76256 15.3232 6.23744 15.3232 6.53033 15.0303L10.5 11.0607L14.4697 15.0303Z"
+            fill="#fff"
+            role="presentation"
+          />
+        </svg>
+      </div>
+
+      <!-- ACCORDION MENU -->
+
+      <div class="accordion">
+        <div class="head">
+          <h4>Setup Guide</h4>
+          <div class="icons">
+            <svg
+              id="arrow-down"
+              width="25"
+              height="25"
+              viewBox="0 0 21 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              role="button"
+              tabindex="0"
+              aria-haspopup="false"
+              aria-expanded="false"
+              aria-label="open accordion"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M6.21967 8.46967C6.51256 8.17678 6.98744 8.17678 7.28033 8.46967L10.75 11.9393L14.2197 8.46967C14.5126 8.17678 14.9874 8.17678 15.2803 8.46967C15.5732 8.76256 15.5732 9.23744 15.2803 9.53033L11.2803 13.5303C10.9874 13.8232 10.5126 13.8232 10.2197 13.5303L6.21967 9.53033C5.92678 9.23744 5.92678 8.76256 6.21967 8.46967Z"
+                fill="#1c181d"
+              />
+            </svg>
+            <svg
+              id="arrow-up"
+              width="25"
+              height="25"
+              viewBox="0 0 21 20"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              role="button"
+              tabindex="0"
+              aria-haspopup="false"
+              aria-expanded="true"
+              aria-label="close accordion"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M15.0303 12.2803C14.7374 12.5732 14.2626 12.5732 13.9697 12.2803L10.5 8.81066L7.03033 12.2803C6.73744 12.5732 6.26256 12.5732 5.96967 12.2803C5.67678 11.9874 5.67678 11.5126 5.96967 11.2197L9.96967 7.21967C10.2626 6.92678 10.7374 6.92678 11.0303 7.21967L15.0303 11.2197C15.3232 11.5126 15.3232 11.9874 15.0303 12.2803Z"
+                fill="#1c181d"
+              />
+            </svg>
+          </div>
+        </div>
+        <p class="p-1">
+          Use this personalized guide to get your store up and running.
+        </p>
+        <div id="progress">
+          <p id="p-2"><span id="counter">0</span>/5 completed</p>
+          <div id="progress_bar">
+            <div id="bar"></div>
+          </div>
+        </div>
+
+        <!-- OPTIONS -->
+
+        <!-- 1 -->
+
+        <div class="options" role="group" tabindex="0">
+          <div class="sub">
+            <div class="sub-sub">
+              <div class="options-head">
+                <svg
+                  class="checkbox"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  role="checkbox"
+                  aria-checked="false"
+                  tabindex="0"
+                  aria-label="Unchecked Checkbox"
+                >
+                  <title>Unchecked Checkbox</title>
+                  <circle
+                    cx="16"
+                    cy="16"
+                    r="12"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-dasharray="4 6"
+                  />
+                </svg>
+                <svg
+                  class="checking"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                >
+                  <path
+                    d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <svg
+                  class="checked"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Checked"
+                >
+                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                  <path
+                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                    fill="#fff"
+                  ></path>
+                </svg>
+                <p class="thick-head">Customize your online store</p>
+              </div>
+              <div class="des" id="first-des" >
+                <p>
+                  Choose a theme and add your logo, colors, and images to
+                  reflect your brand.
+                  <a
+                    class="link"
+                    href="https://help.shopify.com/en/manual/online-store/themes/customizing-themes"
+                  >
+                    Learn more
+                  </a>
+                </p>
+                <button>Customize theme</button>
+              </div>
+            </div>
+            <img
+              class="img"
+              id="first-img"
+              src="https://crushingit.tech/hackathon-assets/customise-store.png"
+              alt="customise-store"
+            />
+          </div>
+        </div>
+
+        <!-- 2 -->
+
+        <div class="options" role="group" tabindex="0">
+          <div class="sub">
+            <div class="sub-sub">
+              <div class="options-head">
+                <svg
+                  class="checkbox"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  role="checkbox"
+                  aria-checked="false"
+                  tabindex="0"
+                  aria-label="Unchecked Checkbox"
+                >
+                  <title>Unchecked Checkbox</title>
+                  <circle
+                    cx="16"
+                    cy="16"
+                    r="12"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-dasharray="4 6"
+                  />
+                </svg>
+                <svg
+                  class="checking"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                >
+                  <path
+                    d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <svg
+                  class="checked"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Checked"
+                >
+                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                  <path
+                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                    fill="#fff"
+                  ></path>
+                </svg>
+                <p class="thick-head">Add your first product</p>
+              </div>
+              <div class="des">
+                <p>
+                  Write a description, add photos, and set pricing for the
+                  products you plan to sell.
+                  <a
+                    class="link"
+                    href="https://help.shopify.com/en/manual/products/add-update-products"
+                  >
+                    Learn more
+                  </a>
+                </p>
+                <button>Add product</button>
+                <a href="#" id="product">Import product</a>
+              </div>
+            </div>
+            <img
+              class="img"
+              src="https://crushingit.tech/hackathon-assets/product.png"
+              alt="product"
+            />
+          </div>
+        </div>
+
+        <!-- 3 -->
+
+        <div class="options" role="group" tabindex="0">
+          <div class="sub">
+            <div class="sub-sub">
+              <div class="options-head">
+                <svg
+                  class="checkbox"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  role="checkbox"
+                  aria-checked="false"
+                  tabindex="0"
+                  aria-label="Unchecked Checkbox"
+                >
+                  <title>Unchecked Checkbox</title>
+                  <circle
+                    cx="16"
+                    cy="16"
+                    r="12"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-dasharray="4 6"
+                  />
+                </svg>
+                <svg
+                  class="checking"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                >
+                  <path
+                    d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <svg
+                  class="checked"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Checked"
+                >
+                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                  <path
+                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                    fill="#fff"
+                  ></path>
+                </svg>
+                <p class="thick-head">Add a custom domain</p>
+              </div>
+              <div class="des">
+                <p>
+                  Your current domain is 222219.myshopify.com but you can add a
+                  custom domain to help customers find your online store.
+                  <a
+                    class="link"
+                    href="https://help.shopify.com/en/manual/domains"
+                  >
+                    Learn more
+                  </a>
+                </p>
+                <button>Add domain</button>
+              </div>
+            </div>
+            <img
+              class="img"
+              src="https://crushingit.tech/hackathon-assets/website.png"
+              alt="website"
+            />
+          </div>
+        </div>
+
+        <!-- 4 -->
+
+        <div class="options" role="group" tabindex="0">
+          <div class="sub">
+            <div class="sub-sub">
+              <div class="options-head">
+                <svg
+                  class="checkbox"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  role="checkbox"
+                  aria-checked="false"
+                  tabindex="0"
+                  aria-label="Unchecked Checkbox"
+                >
+                  <title>Unchecked Checkbox</title>
+                  <circle
+                    cx="16"
+                    cy="16"
+                    r="12"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-dasharray="4 6"
+                  />
+                </svg>
+                <svg
+                  class="checking"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                >
+                  <path
+                    d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <svg
+                  class="checked"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Checked"
+                >
+                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                  <path
+                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                    fill="#fff"
+                  ></path>
+                </svg>
+                <p class="thick-head">Name your store</p>
+              </div>
+              <div class="des">
+                <p>
+                  Your temporary store name is currently Davii collections. The
+                  store name appears in your admin and your online store.
+                  <a
+                    class="link"
+                    href="https://help.shopify.com/en/manual/intro-to-shopify/initial-setup/setup-business-settings#set-or-change-your-online-store-name-and-legal-business-name"
+                  >
+                    Learn more
+                  </a>
+                </p>
+                <button>Name store</button>
+              </div>
+            </div>
+            <img
+              class="img"
+              src="https://crushingit.tech/hackathon-assets/name-store.png"
+              alt="name-store"
+            />
+          </div>
+        </div>
+
+        <!-- 5 -->
+
+        <div class="options" role="group" tabindex="0">
+          <div class="sub">
+            <div class="sub-sub">
+              <div class="options-head">
+                <svg
+                  class="checkbox"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 32 32"
+                  fill="none"
+                  role="checkbox"
+                  aria-checked="false"
+                  tabindex="0"
+                  aria-label="Unchecked Checkbox"
+                >
+                  <title>Unchecked Checkbox</title>
+                  <circle
+                    cx="16"
+                    cy="16"
+                    r="12"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-dasharray="4 6"
+                  />
+                </svg>
+                <svg
+                  class="checking"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 28 28"
+                  fill="none"
+                >
+                  <path
+                    d="M26 14C26 16.3734 25.2962 18.6935 23.9776 20.6668C22.6591 22.6402 20.7849 24.1783 18.5922 25.0866C16.3995 25.9948 13.9867 26.2324 11.6589 25.7694C9.33114 25.3064 7.19295 24.1635 5.51472 22.4853C3.83649 20.8071 2.6936 18.6689 2.23058 16.3411C1.76755 14.0133 2.00519 11.6005 2.91345 9.4078C3.8217 7.21509 5.35977 5.34094 7.33316 4.02236C9.30655 2.70379 11.6266 2 14 2"
+                    stroke="#8A8A8A"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                <svg
+                  class="checked"
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  role="button"
+                  tabindex="0"
+                  aria-label="Checked"
+                >
+                  <circle cx="12" cy="12" r="10" fill="#303030"></circle>
+                  <path
+                    d="M17.2738 8.52629C17.6643 8.91682 17.6643 9.54998 17.2738 9.94051L11.4405 15.7738C11.05 16.1644 10.4168 16.1644 10.0263 15.7738L7.3596 13.1072C6.96908 12.7166 6.96908 12.0835 7.3596 11.693C7.75013 11.3024 8.38329 11.3024 8.77382 11.693L10.7334 13.6525L15.8596 8.52629C16.2501 8.13577 16.8833 8.13577 17.2738 8.52629Z"
+                    fill="#fff"
+                  ></path>
+                </svg>
+                <p class="thick-head">Set up a payment provider</p>
+              </div>
+              <div class="des">
+                <p>
+                  Choose a payment provider to start accepting payments. You’ll
+                  need to create an account with the payment provider and set it
+                  up with your Shopify store.
+                  <a
+                    class="link"
+                    href="https://help.shopify.com/en/manual/payments"
+                  >
+                    Learn more
+                  </a>
+                </p>
+                <button>Setup payment</button>
+              </div>
+            </div>
+            <img
+              class="img"
+              src="https://crushingit.tech/hackathon-assets/payment.png"
+              alt="payment"
+            />
+          </div>
         </div>
       </div>
     </div>

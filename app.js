@@ -1,3 +1,5 @@
+"use strict";
+
 document.addEventListener("DOMContentLoaded", function () {
   // FOR NOTIFICATION BELL
   const bell = document.getElementById("bell"); //Selects the bell icon
@@ -20,35 +22,59 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (bell && notification) {
     bell.addEventListener("click", function () {
-      if (
-        notification.style.display === "none" ||
-        notification.style.display === ""
-      ) {
-        notification.style.display = "block";
-      } else {
-        notification.style.display = "none";
+      toggleNotification();
+    });
+
+    bell.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        toggleNotification();
       }
     });
   }
 
+  function toggleNotification() {
+    if (
+      notification.style.display === "none" ||
+      notification.style.display === ""
+    ) {
+      notification.style.display = "block";
+    } else {
+      notification.style.display = "none";
+    }
+  }
+
   // FOR THE PROFILE IMAGE PLACEHOLDER
 
+  function toggleMenu() {
+    if (menu.style.display === "none" || menu.style.display === "") {
+      menu.style.display = "block";
+    } else {
+      menu.style.display = "none";
+    }
+  }
+
   if (showMenu && menu) {
-    showMenu.addEventListener("click", function () {
-      if (menu.style.display === "none" || menu.style.display === "") {
-        menu.style.display = "block";
-      } else {
-        menu.style.display = "none";
+    // Add click event listener
+    showMenu.addEventListener("click", toggleMenu);
+
+    // Add keyboard event listener
+    showMenu.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        // Trigger toggle function on "Enter" or "Space" key press
+        toggleMenu();
       }
     });
   }
 
   if (showMenuMobile && menu) {
-    showMenuMobile.addEventListener("click", function () {
-      if (menu.style.display === "none" || menu.style.display === "") {
-        menu.style.display = "block";
-      } else {
-        menu.style.display = "none";
+    // Add click event listener
+    showMenuMobile.addEventListener("click", toggleMenu);
+
+    // Add keyboard event listener
+    showMenuMobile.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        // Trigger toggle function on "Enter" or "Space" key press
+        toggleMenu();
       }
     });
   }
@@ -57,77 +83,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
   if (removeInfo) {
     removeInfo.addEventListener("click", function () {
-      if (info) {
-        info.style.display = "none";
+      removeInformation();
+    });
+
+    removeInfo.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        removeInformation();
       }
     });
   }
-});
 
-// FOR ACCORDION MENU
-
-document.addEventListener("DOMContentLoaded", function () {
-  const arrowDown = document.getElementById("arrow-down"); // Selects the 'arrow down' svg
-
-  const arrowUp = document.getElementById("arrow-up"); // Selects the 'arrow up' svg
-
-  const showOptionsOrNot = document.getElementsByClassName("options"); // Selects every div with class 'options'
-
-  const firstImg = document.getElementById("first-img");
-
-  if (arrowDown && arrowUp)
-    arrowDown.addEventListener("click", function () {
-      toggleOptionsDisplay(showOptionsOrNot, true);
-      arrowDown.style.display = "none";
-      arrowUp.style.display = "block";
-      firstImg.style.display = "block";
-    });
-
-  arrowUp.addEventListener("click", function () {
-    toggleOptionsDisplay(showOptionsOrNot, false);
-    arrowUp.style.display = "none";
-    arrowDown.style.display = "block";
-    firstImg.style.display = "none";
-  });
-
-  function toggleOptionsDisplay(showOptionsOrNot, show) {
-    for (let i = 0; i < showOptionsOrNot.length; i++) {
-      showOptionsOrNot[i].style.display = show ? "block" : "none";
-    }
-  }
-});
-
-// FOR THE OPTIONS
-
-document.addEventListener("DOMContentLoaded", function () {
-  const heads = document.getElementsByClassName("options"); // Selects every div with class 'options'
-
-  const descriptions = document.getElementsByClassName("des"); // Selects every div with class 'des'
-
-  const images = document.getElementsByClassName("img"); // Selects every image element with class 'img'
-
-  if (
-    heads.length > 0 &&
-    descriptions.length > 0 &&
-    images.length > 0 &&
-    heads.length === descriptions.length &&
-    heads.length === images.length
-  ) {
-    // the loop below iterates over all elements with the class 'options'
-    for (let i = 0; i < heads.length; i++) {
-      heads[i].addEventListener("click", function () {
-        // This inner loop hides all des and img elements. This ensures that, before showing the relevant ones, we hide all others to reset the visibility.
-        for (let j = 0; j < descriptions.length; j++) {
-          descriptions[j].style.display = "none";
-          images[j].style.display = "none";
-        }
-
-        // Display the description and image associated with the clicked options-head
-        descriptions[i].style.display = "block";
-        if (window.innerWidth > 600) {
-          images[i].style.display = "block";
-        }
-      });
+  function removeInformation() {
+    if (info) {
+      info.style.display = "none";
     }
   }
 });
@@ -191,5 +159,119 @@ document.addEventListener("DOMContentLoaded", function () {
     const totalCheckboxes = checkBoxes.length;
     const completionPercentage = (countChecked / totalCheckboxes) * 100;
     progress.style.width = `${completionPercentage}%`;
+    progress.style.transition = "width 0.5s ease";
+  }
+});
+
+// FOR ACCORDION MENU
+
+document.addEventListener("DOMContentLoaded", function () {
+  const arrowDown = document.getElementById("arrow-down"); // Selects the 'arrow down' svg
+
+  const arrowUp = document.getElementById("arrow-up"); // Selects the 'arrow up' svg
+
+  const showOptionsOrNot = document.getElementsByClassName("options"); // Selects every div with class 'options'
+
+  const firstImg = document.getElementById("first-img"); // Selects the first image in the accordion menu
+
+  const firstDes = document.getElementById("first-des"); // Selects the first description in the accordion menu
+
+  const heads = document.getElementsByClassName("options"); // Selects every div with class 'options'
+
+  const descriptions = document.getElementsByClassName("des"); // Selects every div with class 'des'
+
+  const images = document.getElementsByClassName("img"); // Selects every image element with class 'img'
+
+  if (arrowDown && arrowUp) {
+    arrowDown.addEventListener("click", function () {
+      toggleOptionsDisplay(showOptionsOrNot, true);
+      showFirstImgAndDes(true);
+      arrowDown.style.visibility = "hidden";
+      arrowUp.style.visibility = "visible";
+      arrowUp.focus();
+    });
+
+    arrowDown.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        toggleOptionsDisplay(showOptionsOrNot, true);
+        showFirstImgAndDes(true);
+        arrowDown.style.visibility = "hidden";
+        arrowUp.style.visibility = "visible";
+        arrowUp.focus();
+      }
+    });
+
+    arrowUp.addEventListener("click", function () {
+      toggleOptionsDisplay(showOptionsOrNot, false);
+      showFirstImgAndDes(false);
+      arrowDown.style.visibility = "visible";
+      arrowUp.style.visibility = "hidden";
+      arrowUp.focus();
+    });
+
+    arrowUp.addEventListener("keydown", function (event) {
+      if (event.key === "Enter" || event.key === " ") {
+        toggleOptionsDisplay(showOptionsOrNot, false);
+        showFirstImgAndDes(false);
+        arrowDown.style.visibility = "visible";
+        arrowUp.style.visibility = "hidden";
+        arrowUp.focus();
+      }
+    });
+  }
+
+  function toggleOptionsDisplay(showOptionsOrNot, show) {
+    for (let i = 0; i < showOptionsOrNot.length; i++) {
+      showOptionsOrNot[i].style.display = show ? "block" : "none";
+    }
+  }
+
+  function showFirstImgAndDes(show) {
+    if (show) {
+      firstImg.style.display = "block";
+      firstDes.style.display = "block";
+    } else {
+      firstImg.style.display = "none";
+      firstDes.style.display = "none";
+    }
+  }
+
+  // FOR THE OPTIONS
+
+  if (
+    heads.length > 0 &&
+    descriptions.length > 0 &&
+    images.length > 0 &&
+    heads.length === descriptions.length &&
+    heads.length === images.length
+  ) {
+    // the loop below iterates over all elements with the class 'options'
+    for (let i = 0; i < heads.length; i++) {
+      heads[i].addEventListener("click", function () {
+        showContent(i);
+      });
+
+      // Add keyboard event listener
+      heads[i].addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          showContent(i);
+        }
+      });
+    }
+  }
+
+  function showContent(index) {
+    // This inner loop hides all des and img elements.
+    // This ensures that, before showing the relevant ones, we hide all others to reset the visibility.
+    for (let j = 0; j < descriptions.length; j++) {
+      descriptions[j].style.display = "none";
+      images[j].style.display = "none";
+    }
+
+    // Display the description and image associated with the clicked options-head
+    descriptions[index].style.display = "block";
+    if (window.innerWidth > 600) {
+      images[index].style.display = "block";
+    }
   }
 });

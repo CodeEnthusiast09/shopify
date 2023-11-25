@@ -4,6 +4,13 @@
   margin: 0;
 }
 
+:focus {
+  outline: 2px solid var(--focused);
+  outline-offset: 2px;
+  border-radius: 5px;
+  padding: 3px;
+}
+
 body {
   background-color: var(--background);
   font-family: "inter", sans-serif;
@@ -142,6 +149,11 @@ nav {
   margin-bottom: 5px;
 }
 
+.icons {
+  position: relative;
+  right: -23px;
+}
+
 #arrow-up,
 #arrow-down {
   cursor: pointer;
@@ -153,13 +165,10 @@ nav {
   border-radius: 5px;
 }
 
-#arrow-up,
-#arrow-down:active {
-  border: 1px solid var(--focused);
-}
-
 #arrow-up {
-  display: none;
+  visibility: hidden;
+  position: relative;
+  right: 54%;
 }
 
 .accordion > p {
@@ -199,7 +208,7 @@ nav {
 .options {
   font-size: 13px;
   background-color: var(--background);
-  padding: 8px;
+  padding: 10px;
   border-radius: 8px;
   margin-bottom: 8px;
   cursor: pointer;
@@ -218,11 +227,15 @@ nav {
   gap: 8px;
 }
 
-#hoverIcon {
+.checkbox:hover circle {
+  stroke-dasharray: 0 0;
+}
+
+.hoverIcon {
   display: none;
 }
 
-#checking {
+.checking {
   display: none;
 }
 
@@ -233,6 +246,7 @@ nav {
 .des {
   margin: 0px 0px 16px 40px;
   display: none;
+  line-height: 1.5rem;
 }
 
 .des > p {
@@ -256,6 +270,14 @@ nav {
   border-radius: 6px;
   background-color: var(--grey200);
   color: var(--light);
+  transform: translateY(0.1em);
+  transition: transform 0.1s ease;
+  cursor: pointer;
+}
+
+.des > button:active {
+  transform: translateY(0.1em);
+  border: 1px solid transparent;
 }
 
 #product {
@@ -270,9 +292,6 @@ nav {
   border-radius: 5px;
 }
 
-#product:active {
-  border: 1px solid var(--focused);
-}
 .img {
   display: none;
 }
@@ -291,9 +310,11 @@ nav {
 
 #menu > a {
   text-decoration: none;
+  display: flex;
+  flex-direction: column;
 }
 
-#menu > a > p {
+#menu > a {
   color: var(--grey300);
   padding: 6px 12px;
 }
@@ -355,17 +376,18 @@ nav {
 .menu-items > a {
   text-decoration: none;
   color: var(--grey300);
+  display: flex ;
 }
 
-.menu-items > a > p {
+.menu-items > a {
   margin: 4px 0px;
   padding: 4px 6px;
 }
-.menu-items > a > p:hover {
+.menu-items > a:hover {
   background-color: var(--background);
   border-radius: 6px;
 }
-.menu-items > a > p:active {
+.menu-items > a:active {
   border: 1px solid var(--focused);
 }
 
@@ -374,20 +396,20 @@ nav {
   line-height: 0.3rem;
 }
 
-.store-contact > a {
+.store-contact {
   text-decoration: none;
   color: var(--grey300);
 }
 
-.store-contact > a > p {
+.store-contact > p {
   padding: 6px;
 }
 
-.store-contact > a > p:nth-child(1) {
+.store-contact > p:nth-child(1) {
   font-weight: 600;
 }
 
-.store-contact > a > p:nth-child(2) {
+.store-contact > p:nth-child(2) {
   color: var(--grey100);
 }
 
@@ -490,10 +512,6 @@ nav {
   #dc:hover,
   #bell:hover {
     background-color: var(--mid);
-  }
-  #dc:active,
-  #bell:active {
-    border: 2px solid var(--focused);
   }
 
   #bell {
