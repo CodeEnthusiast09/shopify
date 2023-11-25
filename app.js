@@ -165,27 +165,123 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // FOR ACCORDION MENU
 
+// document.addEventListener("DOMContentLoaded", function () {
+//   const arrowDown = document.getElementById("arrow-down"); // Selects the 'arrow down' svg
+
+//   const arrowUp = document.getElementById("arrow-up"); // Selects the 'arrow up' svg
+
+//   const showOptionsOrNot = document.getElementsByClassName("options"); // Selects every div with class 'options'
+
+//   const heads = document.getElementsByClassName("options"); // Selects every div with class 'options'
+
+//   const descriptions = document.getElementsByClassName("des"); // Selects every div with class 'des'
+
+//   const images = document.getElementsByClassName("img"); // Selects every image element with class 'img'
+
+//   if (arrowDown && arrowUp) {
+//     arrowDown.addEventListener("click", function () {
+//       toggleOptionsDisplay(showOptionsOrNot, true);
+//       showContent(0)
+//       arrowDown.style.visibility = "hidden";
+//       arrowUp.style.visibility = "visible";
+//       arrowUp.focus();
+//     });
+
+//     arrowDown.addEventListener("keydown", function (event) {
+//       if (event.key === "Enter" || event.key === " ") {
+//         toggleOptionsDisplay(showOptionsOrNot, true);
+//         arrowDown.style.visibility = "hidden";
+//         arrowUp.style.visibility = "visible";
+//         arrowUp.focus();
+//       }
+//     });
+
+//     arrowUp.addEventListener("click", function () {
+//       toggleOptionsDisplay(showOptionsOrNot, false);
+//       arrowDown.style.visibility = "visible";
+//       arrowUp.style.visibility = "hidden";
+//       arrowUp.focus();
+//     });
+
+//     arrowUp.addEventListener("keydown", function (event) {
+//       if (event.key === "Enter" || event.key === " ") {
+//         toggleOptionsDisplay(showOptionsOrNot, false);
+//         arrowDown.style.visibility = "visible";
+//         arrowUp.style.visibility = "hidden";
+//         arrowUp.focus();
+//       }
+//     });
+//   }
+
+//   function toggleOptionsDisplay(showOptionsOrNot, show) {
+//     for (let i = 0; i < showOptionsOrNot.length; i++) {
+//       showOptionsOrNot[i].style.display = show ? "block" : "none";
+//     }
+//   }
+
+//   // FOR THE OPTIONS
+
+//   if (
+//     heads.length > 0 &&
+//     descriptions.length > 0 &&
+//     images.length > 0 &&
+//     heads.length === descriptions.length &&
+//     heads.length === images.length
+//   ) {
+//     // the loop below iterates over all elements with the class 'options'
+//     for (let i = 0; i < heads.length; i++) {
+//       heads[i].addEventListener("click", function () {
+//         showContent(i);
+//       });
+
+//       // Add keyboard event listener
+//       heads[i].addEventListener("keydown", function (event) {
+//         if (event.key === "Enter") {
+//           showContent(i);
+//         }
+//       });
+//     }
+//   }
+
+//   function showContent(index) {
+//     // This inner loop hides all des and img elements.
+//     // This ensures that, before showing the relevant ones, we hide all others to reset the visibility.
+//     for (let j = 0; j < descriptions.length; j++) {
+//       descriptions[j].style.display = "none";
+//       images[j].style.display = "none";
+//     }
+
+//     // Display the description and image associated with the clicked options-head
+//     descriptions[index].style.display = "block";
+//     if (window.innerWidth > 600) {
+//       images[index].style.display = "block";
+//     }
+//   }
+// });
+
 document.addEventListener("DOMContentLoaded", function () {
-  const arrowDown = document.getElementById("arrow-down"); // Selects the 'arrow down' svg
+  const arrowDown = document.getElementById("arrow-down");
+  const arrowUp = document.getElementById("arrow-up");
+  const showOptionsOrNot = document.getElementsByClassName("options");
+  const heads = document.getElementsByClassName("options");
+  const descriptions = document.getElementsByClassName("des");
+  const images = document.getElementsByClassName("img");
 
-  const arrowUp = document.getElementById("arrow-up"); // Selects the 'arrow up' svg
-
-  const showOptionsOrNot = document.getElementsByClassName("options"); // Selects every div with class 'options'
-
-  const firstImg = document.getElementById("first-img"); // Selects the first image in the accordion menu
-
-  const firstDes = document.getElementById("first-des"); // Selects the first description in the accordion menu
-
-  const heads = document.getElementsByClassName("options"); // Selects every div with class 'options'
-
-  const descriptions = document.getElementsByClassName("des"); // Selects every div with class 'des'
-
-  const images = document.getElementsByClassName("img"); // Selects every image element with class 'img'
+  // Initial state: hide options
+  toggleOptionsDisplay(showOptionsOrNot, true);
+  showContent(0);
 
   if (arrowDown && arrowUp) {
+    // let isFirstClick = true;
+
     arrowDown.addEventListener("click", function () {
+      // if (isFirstClick) {
+      //   showContent(0);
+      //   isFirstClick = false;
+      // } else {
+      //   toggleOptionsDisplay(showOptionsOrNot, true);
+      // }
       toggleOptionsDisplay(showOptionsOrNot, true);
-      showFirstImgAndDes(true);
       arrowDown.style.visibility = "hidden";
       arrowUp.style.visibility = "visible";
       arrowUp.focus();
@@ -193,8 +289,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     arrowDown.addEventListener("keydown", function (event) {
       if (event.key === "Enter" || event.key === " ") {
-        toggleOptionsDisplay(showOptionsOrNot, true);
-        showFirstImgAndDes(true);
+        if (isFirstClick) {
+          showContent(0);
+          isFirstClick = false;
+        } else {
+          toggleOptionsDisplay(showOptionsOrNot, true);
+        }
         arrowDown.style.visibility = "hidden";
         arrowUp.style.visibility = "visible";
         arrowUp.focus();
@@ -203,7 +303,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     arrowUp.addEventListener("click", function () {
       toggleOptionsDisplay(showOptionsOrNot, false);
-      showFirstImgAndDes(false);
       arrowDown.style.visibility = "visible";
       arrowUp.style.visibility = "hidden";
       arrowUp.focus();
@@ -212,7 +311,6 @@ document.addEventListener("DOMContentLoaded", function () {
     arrowUp.addEventListener("keydown", function (event) {
       if (event.key === "Enter" || event.key === " ") {
         toggleOptionsDisplay(showOptionsOrNot, false);
-        showFirstImgAndDes(false);
         arrowDown.style.visibility = "visible";
         arrowUp.style.visibility = "hidden";
         arrowUp.focus();
@@ -226,18 +324,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function showFirstImgAndDes(show) {
-    if (show) {
-      firstImg.style.display = "block";
-      firstDes.style.display = "block";
-    } else {
-      firstImg.style.display = "none";
-      firstDes.style.display = "none";
-    }
-  }
-
-  // FOR THE OPTIONS
-
   if (
     heads.length > 0 &&
     descriptions.length > 0 &&
@@ -245,13 +331,11 @@ document.addEventListener("DOMContentLoaded", function () {
     heads.length === descriptions.length &&
     heads.length === images.length
   ) {
-    // the loop below iterates over all elements with the class 'options'
     for (let i = 0; i < heads.length; i++) {
       heads[i].addEventListener("click", function () {
         showContent(i);
       });
 
-      // Add keyboard event listener
       heads[i].addEventListener("keydown", function (event) {
         if (event.key === "Enter") {
           showContent(i);
@@ -261,14 +345,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function showContent(index) {
-    // This inner loop hides all des and img elements.
-    // This ensures that, before showing the relevant ones, we hide all others to reset the visibility.
     for (let j = 0; j < descriptions.length; j++) {
       descriptions[j].style.display = "none";
       images[j].style.display = "none";
     }
 
-    // Display the description and image associated with the clicked options-head
     descriptions[index].style.display = "block";
     if (window.innerWidth > 600) {
       images[index].style.display = "block";

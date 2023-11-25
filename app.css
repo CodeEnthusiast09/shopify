@@ -165,8 +165,12 @@ nav {
   border-radius: 5px;
 }
 
-#arrow-up {
+#arrow-down {
   visibility: hidden;
+  position: relative;
+}
+
+#arrow-up {
   position: relative;
   right: 54%;
 }
@@ -306,6 +310,7 @@ nav {
   right: 2%;
   font-size: 13px;
   display: none;
+  z-index: 99;
 }
 
 #menu > a {
