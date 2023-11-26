@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const removeInfo = document.getElementById("remove-info"); //Selects the "x" icon
 
+  const menuItems = document.querySelectorAll(".menuItems"); // Selects every menuItem
+
   // FOR NOTIFICATION BELL
 
   if (bell && notification) {
@@ -28,6 +30,8 @@ document.addEventListener("DOMContentLoaded", function () {
     bell.addEventListener("keydown", function (event) {
       if (event.key === "Enter" || event.key === " ") {
         toggleNotification();
+      } else if (event.key === "Escape") {
+        closeNotification();
       }
     });
   }
@@ -43,6 +47,11 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  function closeNotification() {
+    // Close notification logic
+    notification.style.display = "none";
+  }
+
   // FOR THE PROFILE IMAGE PLACEHOLDER
 
   function toggleMenu() {
@@ -53,18 +62,51 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  if (showMenu && menu) {
-    // Add click event listener
-    showMenu.addEventListener("click", toggleMenu);
-
-    // Add keyboard event listener
-    showMenu.addEventListener("keydown", function (event) {
-      if (event.key === "Enter" || event.key === " ") {
-        // Trigger toggle function on "Enter" or "Space" key press
-        toggleMenu();
-      }
-    });
+  function closeMenu() {
+    toggleMenu();
   }
+
+  // Function to handle keyboard navigation
+  function handleKeyboardNavigation(event) {
+    if (event.key === "Escape") {
+      // Close the menu on "Escape" key press
+      closeMenu();
+    }
+
+    const isLastItem = menuItems.length - 1;
+    const currentIndex = Array.from(menuItems).indexOf(document.activeElement);
+
+    if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+      // Move focus to the next item
+      const nextIndex = currentIndex === isLastItem ? 0 : currentIndex + 1;
+      menuItems[nextIndex].focus();
+    }
+
+    if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+      // Move focus to the previous item
+      const prevIndex = currentIndex === 0 ? isLastItem : currentIndex - 1;
+      menuItems[prevIndex].focus();
+    }
+  }
+
+  // Add click event listener to toggle menu visibility
+  showMenu.addEventListener("click", toggleMenu);
+
+  // Add keyboard event listener to handle arrow keys and Escape
+  showMenu.addEventListener("keydown", function (event) {
+    if (event.key === "Enter" || event.key === " ") {
+      // Trigger toggle function on "Enter" or "Space" key press
+      toggleMenu();
+    } else {
+      // Handle keyboard navigation for menu items
+      handleKeyboardNavigation(event);
+    }
+  });
+
+  // Add keyboard event listeners to menu items
+  menuItems.forEach((menuItem) => {
+    menuItem.addEventListener("keyup", handleKeyboardNavigation);
+  });
 
   if (showMenuMobile && menu) {
     // Add click event listener
@@ -132,6 +174,24 @@ document.addEventListener("DOMContentLoaded", function () {
         updateCheckedCount(i);
         updateProgress();
       });
+
+      // Add keyboard event listener for the "Enter" key
+      checkBoxes[i].addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          toggleCheckbox(i);
+          updateCheckedCount(i);
+          updateProgress();
+        }
+      });
+
+      // Add keyboard event listener for the "Enter" key on checked icons
+      checkedIcons[i].addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+          toggleCheckbox(i);
+          updateCheckedCount(i);
+          updateProgress();
+        }
+      });
     }
   }
 
@@ -165,100 +225,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // FOR ACCORDION MENU
 
-// document.addEventListener("DOMContentLoaded", function () {
-//   const arrowDown = document.getElementById("arrow-down"); // Selects the 'arrow down' svg
-
-//   const arrowUp = document.getElementById("arrow-up"); // Selects the 'arrow up' svg
-
-//   const showOptionsOrNot = document.getElementsByClassName("options"); // Selects every div with class 'options'
-
-//   const heads = document.getElementsByClassName("options"); // Selects every div with class 'options'
-
-//   const descriptions = document.getElementsByClassName("des"); // Selects every div with class 'des'
-
-//   const images = document.getElementsByClassName("img"); // Selects every image element with class 'img'
-
-//   if (arrowDown && arrowUp) {
-//     arrowDown.addEventListener("click", function () {
-//       toggleOptionsDisplay(showOptionsOrNot, true);
-//       showContent(0)
-//       arrowDown.style.visibility = "hidden";
-//       arrowUp.style.visibility = "visible";
-//       arrowUp.focus();
-//     });
-
-//     arrowDown.addEventListener("keydown", function (event) {
-//       if (event.key === "Enter" || event.key === " ") {
-//         toggleOptionsDisplay(showOptionsOrNot, true);
-//         arrowDown.style.visibility = "hidden";
-//         arrowUp.style.visibility = "visible";
-//         arrowUp.focus();
-//       }
-//     });
-
-//     arrowUp.addEventListener("click", function () {
-//       toggleOptionsDisplay(showOptionsOrNot, false);
-//       arrowDown.style.visibility = "visible";
-//       arrowUp.style.visibility = "hidden";
-//       arrowUp.focus();
-//     });
-
-//     arrowUp.addEventListener("keydown", function (event) {
-//       if (event.key === "Enter" || event.key === " ") {
-//         toggleOptionsDisplay(showOptionsOrNot, false);
-//         arrowDown.style.visibility = "visible";
-//         arrowUp.style.visibility = "hidden";
-//         arrowUp.focus();
-//       }
-//     });
-//   }
-
-//   function toggleOptionsDisplay(showOptionsOrNot, show) {
-//     for (let i = 0; i < showOptionsOrNot.length; i++) {
-//       showOptionsOrNot[i].style.display = show ? "block" : "none";
-//     }
-//   }
-
-//   // FOR THE OPTIONS
-
-//   if (
-//     heads.length > 0 &&
-//     descriptions.length > 0 &&
-//     images.length > 0 &&
-//     heads.length === descriptions.length &&
-//     heads.length === images.length
-//   ) {
-//     // the loop below iterates over all elements with the class 'options'
-//     for (let i = 0; i < heads.length; i++) {
-//       heads[i].addEventListener("click", function () {
-//         showContent(i);
-//       });
-
-//       // Add keyboard event listener
-//       heads[i].addEventListener("keydown", function (event) {
-//         if (event.key === "Enter") {
-//           showContent(i);
-//         }
-//       });
-//     }
-//   }
-
-//   function showContent(index) {
-//     // This inner loop hides all des and img elements.
-//     // This ensures that, before showing the relevant ones, we hide all others to reset the visibility.
-//     for (let j = 0; j < descriptions.length; j++) {
-//       descriptions[j].style.display = "none";
-//       images[j].style.display = "none";
-//     }
-
-//     // Display the description and image associated with the clicked options-head
-//     descriptions[index].style.display = "block";
-//     if (window.innerWidth > 600) {
-//       images[index].style.display = "block";
-//     }
-//   }
-// });
-
 document.addEventListener("DOMContentLoaded", function () {
   const arrowDown = document.getElementById("arrow-down");
   const arrowUp = document.getElementById("arrow-up");
@@ -272,15 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
   showContent(0);
 
   if (arrowDown && arrowUp) {
-    // let isFirstClick = true;
-
     arrowDown.addEventListener("click", function () {
-      // if (isFirstClick) {
-      //   showContent(0);
-      //   isFirstClick = false;
-      // } else {
-      //   toggleOptionsDisplay(showOptionsOrNot, true);
-      // }
       toggleOptionsDisplay(showOptionsOrNot, true);
       arrowDown.style.visibility = "hidden";
       arrowUp.style.visibility = "visible";
